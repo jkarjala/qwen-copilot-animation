@@ -31,4 +31,10 @@ body {
   display: block;
   width: 100vw;
   height: 100vh;
+  cursor: grab;
+  touch-action: none;
+}
+
+.bouncing-ball:active {
+  cursor: grabbing;
 }

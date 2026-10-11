@@ -1,14 +1,16 @@
 # Bouncing Ball Playground
 
-A small React + TypeScript app that renders a full-screen animation of colorful balls bouncing around the viewport. The simulation includes gravity, wall collisions, restitution, and ball-to-ball interactions so the motion feels lively and organic.
+A small React + TypeScript app that renders a full-screen animation of colorful balls bouncing around the viewport. The simulation includes gravity, wall collisions, restitution, and ball-to-ball interactions so the motion feels lively and organic. You can grab any ball with the pointer, drag it around, and fling it to send it flying.
 
 ## Features
 
-- Full-screen canvas-based animation
-- 10 brightly colored balls with randomized initial motion
+- Full-screen canvas-based animation with crisp retina (devicePixelRatio) scaling
+- 10 brightly colored balls with randomized initial motion and size
 - Gravity-driven bouncing with wall and floor collision handling
-- Ball-to-ball physics with overlap resolution and elastic impulses
-- Responsive resizing for different screen sizes
+- Ball-to-ball physics with overlap resolution and elastic impulses (mass ∝ radius², so bigger balls push smaller ones)
+- Interactive pointer controls: pick up a ball, drag it, and release with a throw velocity derived from recent pointer motion
+- Minimum bounce and drift speeds keep the scene lively instead of settling to rest
+- Responsive resizing that keeps every ball inside the new bounds
 - Built with Vite, React, and TypeScript
 
 ## Tech Stack
@@ -72,4 +74,13 @@ npm run preview -- --host 0.0.0.0
 
 ## Notes
 
-The animation logic lives in `src/components/BouncingBall.tsx`. The component uses a canvas element and requestAnimationFrame to continuously update the ball positions and render the scene.
+The animation logic lives in `src/components/BouncingBall.tsx`. The component uses a canvas element and `requestAnimationFrame` to continuously update the ball positions and render the scene.
+
+Key simulation constants (defined at the top of the component):
+
+- `BALL_COUNT` — number of balls (10)
+- `GRAVITY` — downward acceleration in px/s²
+- `RESTITUTION` — fraction of energy kept per bounce
+- `MIN_BOUNCE` / `MIN_SPEED` — floor and drift speed floors that keep the motion lively
+
+Interaction: pointer events (`pointerdown` / `pointermove` / `pointerup`) let you grab the topmost ball under the cursor, drag it, and release it. A smoothed velocity sampled from recent pointer positions is applied on release so the ball can be thrown. The held ball is excluded from the physics integration while it is being dragged.
