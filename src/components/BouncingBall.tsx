@@ -24,7 +24,7 @@ const PALETTE = [
   "#ffffff", // white
 ];
 
-const BALL_COUNT = 10;
+const BALL_COUNT = 100;
 const GRAVITY = 2000; // px/s^2
 const RESTITUTION = 0.85; // energy kept per bounce
 const MIN_BOUNCE = 600; // px/s — keeps a lively floor bounce going

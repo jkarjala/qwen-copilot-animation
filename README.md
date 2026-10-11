@@ -2,6 +2,8 @@
 
 A small React + TypeScript app that renders a full-screen animation of colorful balls bouncing around the viewport. The simulation includes gravity, wall collisions, restitution, and ball-to-ball interactions so the motion feels lively and organic. You can grab any ball with the pointer, drag it around, and fling it to send it flying.
 
+**[Live Demo](https://jkarjala.github.io/qwen-copilot-animation/)**
+
 ## Features
 
 - Full-screen canvas-based animation with crisp retina (devicePixelRatio) scaling
@@ -54,6 +56,10 @@ To preview the production build locally:
 ```bash
 npm run preview -- --host 0.0.0.0
 ```
+
+## Deployment
+
+The site is published to [GitHub Pages](https://jkarjala.github.io/qwen-copilot-animation/) via the workflow in `.github/workflows/deploy.yml`. It builds the app with a base path of `/<repo-name>/` and deploys on every push to `main` (or manually from the Actions tab).
 
 ## Project Structure
 
