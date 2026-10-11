@@ -59,7 +59,7 @@ npm run preview -- --host 0.0.0.0
 
 ## Deployment
 
-The site is published to [GitHub Pages](https://jkarjala.github.io/qwen-copilot-animation/) via the workflow in `.github/workflows/deploy.yml`. It builds the app with a base path of `/<repo-name>/` and deploys on every push to `main` (or manually from the Actions tab).
+The site is published to [GitHub Pages](https://jkarjala.github.io/qwen-copilot-animation/) via the workflow in `.github/workflows/deploy.yml`. It builds the app with a base path of `/<repo-name>/` and deploys on every push to `master` (or manually from the Actions tab).
 
 ## Project Structure
 
